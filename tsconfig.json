@@ -1,28 +1,39 @@
 {
   "compilerOptions": {
     "sourceMap": true,
-    "baseUrl": ".",
+    "baseUrl": "./",
     "module": "ESNext",
     "target": "es2016",
-    "lib": ["DOM", "ESNext"],
-    "strict": true,
+    "lib": [
+      "DOM",
+      "ESNext"
+    ],
+    "strict": false,
     "jsx": "preserve",
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "moduleResolution": "bundler",
+    "moduleResolution": "Node",
     "resolveJsonModule": true,
-    "noUnusedLocals": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "experimentalDecorators": true,
     "strictNullChecks": true,
     "allowJs": true,
-    "forceConsistentCasingInFileNames": true,
     "types": [
       "@dcloudio/types",
       "@uni-helper/uni-app-types",
-      "@vue-macros/reactivity-transform/macros-global"
+      "@vue-macros/reactivity-transform/macros-global",
+      "@tuniao/tnui-vue3-uniapp/global.d.ts"
     ],
     "paths": {
-      "~/*": ["src/*"],
-      "@/*": ["src/*"]
+      "~/*": [
+        "src/*"
+      ],
+      "@/*": [
+        "src/*"
+      ]
     }
   },
   "include": [
@@ -32,10 +43,17 @@
     "src/**/*.vue",
     "./auto-imports.d.ts"
   ],
-  "exclude": ["dist", "node_modules"],
-
+  "exclude": [
+    "dist",
+    "node_modules"
+  ],
   // uni-app Component type prompt
   "vueCompilerOptions": {
-    "nativeTags": ["block", "component", "template", "slot"]
+    "nativeTags": [
+      "block",
+      "component",
+      "template",
+      "slot"
+    ]
   }
 }

@@ -1,5 +1,3 @@
-/// <reference types="vitest" />
-
 import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 import uni from '@dcloudio/vite-plugin-uni'
@@ -9,8 +7,7 @@ import Components from 'unplugin-vue-components/vite'
 import UniPages from '@uni-helper/vite-plugin-uni-pages'
 import UniLayouts from '@uni-helper/vite-plugin-uni-layouts'
 import VueDevTools from 'vite-plugin-vue-devtools'
-
-// @ts-expect-error failed to resolve types
+import { viteSingleFile } from "vite-plugin-singlefile"
 import ReactivityTransform from '@vue-macros/reactivity-transform/vite'
 
 // https://vitejs.dev/config/
@@ -18,6 +15,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '~/': `${resolve(__dirname, 'src')}/`,
+      '@': `${resolve(__dirname, 'src')}/`,
     },
   },
   plugins: [
@@ -73,7 +71,7 @@ export default defineConfig({
      * vite-plugin-vue-devtools 增强 Vue 开发者体验
      * @see https://github.com/webfansplz/vite-plugin-vue-devtools
      */
-    VueDevTools(),
+    // VueDevTools(),
 
     uni(),
 
@@ -82,13 +80,6 @@ export default defineConfig({
      * @see https://vue-macros.sxzz.moe/zh-CN/features/reactivity-transform.html
      */
     ReactivityTransform(),
-  ],
-
-  /**
-   * Vitest
-   * @see https://github.com/vitest-dev/vitest
-   */
-  test: {
-    environment: 'jsdom',
-  },
+    viteSingleFile()
+  ]
 })

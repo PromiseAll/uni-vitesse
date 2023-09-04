@@ -3,5 +3,6 @@
 </script>
 
 <style lang="scss">
-@import './styles/main.css';
+@import "./styles/main.css";
+@import "@tuniao/tn-style/dist/uniapp/index.css";
 </style>

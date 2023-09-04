@@ -23,14 +23,14 @@ if (isApplet) {
    * UnoCSS Applet
    * @see https://github.com/unocss-applet/unocss-applet
    */
-  presets.push(presetApplet())
+  presets.push(presetApplet()) // 基本预设
   // presets.push(presetRemRpx()) // 如果需要使用 rem 转 rpx 单位，需要启用此插件
-  transformers.push(transformerAttributify())
-  transformers.push(transformerApplet())
+  // transformers.push(transformerAttributify()) //启用属性模式
+  transformers.push(transformerApplet()) // 启用 Applet 兼容模式
 }
 else {
-  presets.push(presetUno())
-  presets.push(presetAttributify())
+  presets.push(presetUno()) // 基本预设
+  // presets.push(presetAttributify()) //启用属性模式
 }
 
 export default defineConfig({

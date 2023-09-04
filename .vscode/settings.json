@@ -1,8 +1,8 @@
 {
   "cSpell.words": ["Vitesse"],
-  "prettier.enable": false,
+  "prettier.enable": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": false
   },
   "files.associations": {
     "*.css": "postcss"
@@ -13,5 +13,6 @@
    * 解决 unocss @apply 警告问题
    * @see https://github.com/tailwindlabs/tailwindcss/discussions/5258#discussioncomment-1979394
    */
-  "scss.lint.unknownAtRules": "ignore"
+  "scss.lint.unknownAtRules": "ignore",
+  "typescript.tsdk": "node_modules\\typescript\\lib"
 }
