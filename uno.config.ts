@@ -1,4 +1,5 @@
 import type { Preset, SourceCodeTransformer } from 'unocss'
+import type { Theme } from 'unocss/preset-uno'
 import {
   defineConfig,
   presetAttributify,
@@ -13,6 +14,7 @@ import {
   transformerApplet,
   transformerAttributify,
 } from 'unocss-applet'
+import presetTheme from 'unocss-preset-theme'
 
 const isApplet = process.env?.UNI_PLATFORM?.startsWith('mp-') ?? false
 const presets: Preset[] = []
@@ -41,15 +43,33 @@ export default defineConfig({
       warn: true,
     }),
     ...presets,
+    presetTheme<Theme>({
+      selectors: {
+        dart: '[theme=dark]',
+        test: '[theme=test]',
+      },
+      theme: {
+        // Configure dark themes
+        dark: {
+
+        },
+        // Configure compact themes
+        test: {
+          colors: {
+            primary: '#333333',
+            text: '#ffffff',
+          }
+        }
+      }
+    })
   ],
   /**
    * 自定义快捷语句
    * @see https://github.com/unocss/unocss#shortcuts
    */
   shortcuts: [
-    ['center', 'flex justify-center items-center'],
-    ['btn', 'px-4 py-1 rounded inline-block bg-teal-600 text-white cursor-pointer hover:bg-teal-700 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50'],
-    ['icon-btn', 'text-[0.9em] inline-block cursor-pointer select-none opacity-75 transition duration-200 ease-in-out hover:opacity-100 hover:text-teal-600 !outline-none'],
+    ['flex-center', 'flex justify-center items-center'],
+    ['abs-center', 'absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'],
   ],
   transformers: [
     transformerDirectives(), // 启用 @apply 功能

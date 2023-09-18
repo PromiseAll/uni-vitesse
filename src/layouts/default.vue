@@ -1,3 +1,5 @@
 <template>
-  <slot />
+  <div class="bg-primary">
+    <slot />
+  </div>
 </template>
