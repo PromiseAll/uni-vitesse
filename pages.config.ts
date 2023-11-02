@@ -17,13 +17,10 @@ export default defineUniPages({
     }
   ],
   globalStyle: {
-    'navigationBarTitleText': 'uni-vitesse',
-    'navigationBarBackgroundColor': '@navBgColor',
-    'navigationBarTextStyle': '@navTxtStyle',
-    'backgroundColor': '@bgColor',
-    'backgroundTextStyle': '@bgTxtStyle',
-    'backgroundColorTop': '@bgColorTop',
-    'backgroundColorBottom': '@bgColorBottom',
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8",
     'app-plus': {
       titleNView: false, // 移除 H5、APP 顶部导航
     },

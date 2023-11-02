@@ -2,6 +2,7 @@
   "upgrade": false,
   "format": "group",
   "reject": [
-    "pinia"
+    "pinia",
+    "@vueuse/core"
   ]
 }

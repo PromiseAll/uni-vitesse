@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import logo from "@/static/logo.png";
 import { useColorMode } from "@vueuse/core";
 const mode = useColorMode({
   attribute: "theme",
@@ -20,7 +21,7 @@ const name = ref("");
     </div>
 
     <div class="text-text">我是首页</div>
-    <img src="/static/logo.png" alt="" />
+    <img :src="logo" alt=""  class="w-50 h-50"/>
   </div>
 </template>
 

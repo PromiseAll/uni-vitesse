@@ -9,8 +9,7 @@ import UniLayouts from '@uni-helper/vite-plugin-uni-layouts'
 import VueDevTools from 'vite-plugin-vue-devtools'
 import { viteSingleFile } from "vite-plugin-singlefile"
 import ReactivityTransform from '@vue-macros/reactivity-transform/vite'
-
-// https://vitejs.dev/config/
+import { UniUseAutoImports } from '@uni-helper/uni-use';
 export default defineConfig({
   resolve: {
     alias: {
@@ -19,37 +18,18 @@ export default defineConfig({
     },
   },
   plugins: [
-    /**
-     * vite-plugin-uni-pages
-     * @see https://github.com/uni-helper/vite-plugin-uni-pages
-     */
     UniPages({
       subPackages: [
         'src/pages-sub',
       ],
     }),
-
-    /**
-     * vite-plugin-uni-layouts
-     * @see https://github.com/uni-helper/vite-plugin-uni-layouts
-     */
     UniLayouts(),
-
-    /**
-     * unocss
-     * @see https://github.com/antfu/unocss
-     * see unocss.config.ts for config
-    */
-    Unocss(),
-
-    /**
-     * unplugin-auto-import 按需 import
-     * @see https://github.com/antfu/unplugin-auto-import
-     */
     AutoImport({
       imports: [
         'vue',
         'uni-app',
+        '@vueuse/core',
+        UniUseAutoImports
       ],
       dts: true,
       dirs: [
@@ -57,29 +37,15 @@ export default defineConfig({
       ],
       vueTemplate: true,
     }),
-
-    /**
-     * unplugin-vue-components 按需引入组件
-     * 注意：需注册至 uni 之前，否则不会生效
-     * @see https://github.com/antfu/vite-plugin-components
-     */
     Components({
-      dts: 'src/components.d.ts',
+      // dts: 'src/components.d.ts',
     }),
-
-    /**
-     * vite-plugin-vue-devtools 增强 Vue 开发者体验
-     * @see https://github.com/webfansplz/vite-plugin-vue-devtools
-     */
+    Unocss(),
     // VueDevTools(),
-
     uni(),
-
-    /**
-     * Reactivity Transform
-     * @see https://vue-macros.sxzz.moe/zh-CN/features/reactivity-transform.html
-     */
+    // vue实验性功能
     ReactivityTransform(),
-    viteSingleFile()
+    // h5打包单文件
+    // viteSingleFile()
   ]
 })
